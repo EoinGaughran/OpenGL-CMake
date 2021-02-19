@@ -6,8 +6,6 @@ add_executable(${PROJECT_NAME} main.cpp)
 
 add_subdirectory(Adder)
 
-add_subdirectory(external/glfw)
-
 # Downloads Submodules
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "S{PROJECT_SOURCE_DIR}/.git")
@@ -32,7 +30,7 @@ if(NOT EXISTS "${PROJECT_SOURCE_DIR}/external/glfw/CMakeLists.txt")
     message(FATAL_ERROR "The glfw submodule was not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodule glfw")
 endif()
 
-
+add_subdirectory(external/glfw)
 
 target_include_directories(${PROJECT_NAME}
 
